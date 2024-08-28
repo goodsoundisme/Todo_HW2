@@ -49,5 +49,14 @@ public class TodoService {
         return new TodoUpdateResponseDto(todo.getId(), todo.getTitle(), todo.getContents());
     }
 
+    @Transactional
+    public void deleteTodo(Long todoId){
+        if (!todoRepository.existsById(todoId)){
+            throw new NullPointerException("todo가 없습니다.");
+        }
+
+        todoRepository.deleteById(todoId);
+    }
+
 
 }

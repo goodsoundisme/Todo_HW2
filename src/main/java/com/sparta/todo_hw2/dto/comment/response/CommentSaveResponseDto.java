@@ -1,4 +1,4 @@
-package com.sparta.todo_hw2.dto;
+package com.sparta.todo_hw2.dto.comment.response;
 
 import lombok.Getter;
 

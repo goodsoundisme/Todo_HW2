@@ -1,8 +1,8 @@
 package com.sparta.todo_hw2.service;
 
-import com.sparta.todo_hw2.dto.CommentResponseDto;
-import com.sparta.todo_hw2.dto.CommentSaveRequestDto;
-import com.sparta.todo_hw2.dto.CommentSaveResponseDto;
+import com.sparta.todo_hw2.dto.comment.response.CommentResponseDto;
+import com.sparta.todo_hw2.dto.comment.request.CommentSaveRequestDto;
+import com.sparta.todo_hw2.dto.comment.response.CommentSaveResponseDto;
 import com.sparta.todo_hw2.entity.Comment;
 import com.sparta.todo_hw2.entity.Todo;
 import com.sparta.todo_hw2.repository.CommentRepository;

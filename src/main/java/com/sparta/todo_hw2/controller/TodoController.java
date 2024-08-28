@@ -1,12 +1,15 @@
 package com.sparta.todo_hw2.controller;
 
-import com.sparta.todo_hw2.dto.*;
+import com.sparta.todo_hw2.dto.Todo.request.TodoSaveRequestDto;
+import com.sparta.todo_hw2.dto.Todo.request.TodoUpdateRequestDto;
+import com.sparta.todo_hw2.dto.Todo.response.TodoSaveResponseDto;
+import com.sparta.todo_hw2.dto.Todo.response.TodoSimpleResponsDto;
+import com.sparta.todo_hw2.dto.Todo.response.TodoUpdateResponseDto;
 import com.sparta.todo_hw2.service.TodoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,8 +23,11 @@ public class TodoController {
     }
 
     @GetMapping("/todos")
-    public ResponseEntity<List<TodoSimpleResponsDto>> getTodos() {
-        return ResponseEntity.ok(todoService.getTodos());
+    public ResponseEntity<Page<TodoSimpleResponsDto>> getTodos(
+            @RequestParam(defaultValue = "1", required = false) int page,
+            @RequestParam(defaultValue = "10", required = false) int size
+    ) {
+        return ResponseEntity.ok(todoService.getTodos(page, size));
     }
 
     @PutMapping("/todos/{todoId}")
